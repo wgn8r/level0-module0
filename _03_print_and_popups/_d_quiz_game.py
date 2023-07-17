@@ -3,17 +3,18 @@ from tkinter import messagebox, simpledialog, Tk
 # Create an if-main code block, *hint, type main then ctrl+space to auto-complete
     
     # Make a new window variable, window = Tk()
-    
+window = Tk()
     # Hide the window using the window's .withdraw() method
-    
+window.withdraw()
     # 1. Create a variable to hold the user's score. Set it equal to zero. 
-
+score=0
     # ASK A QUESTION AND CHECK THE ANSWER
 
     #      // 2.  Ask the user a question 
-    
+x=simpledialog.askstring(title=None,prompt="what is the quadratic formula?")
     #      // 3.  Use an if statement to check if their answer is correct
-
+if x=="(-b±√b^2-4ac)/2a":
+    
     #      // 4.  if the user's answer was correct, add one to their score 
  
     # MAKE MORE QUESTIONS. Ask more questions by repeating the above 
