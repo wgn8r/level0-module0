@@ -1,6 +1,7 @@
 import turtle
 from PIL import Image
 
+
 # ================= Instructions at the bottom of this file ===================
 
 
@@ -21,14 +22,15 @@ class Eye:
         self.x = x
         self.y = y
         self.radius = radius
-        
+
         self.eye.penup()
-        
+
     def draw(self):
         self.eye.begin_fill()
         self.eye.goto(self.x, self.y)
         self.eye.circle(radius=self.radius, steps=20)
         self.eye.end_fill()
+
 
 # ====================== DO NOT EDIT THE CODE ABOVE ===========================
 
@@ -39,28 +41,40 @@ def screen_clicked(x, y):
 
 def key_pressed():
     print('You pressed the space key')
-    
+
     # LASER BEAM.  This code will make your ellipse move down and to the right
     # when you press the space bar. Run the program to test it.
 
     # 10. Increment the x and y variables of the 2 eye variables by 5:
-    #     left_eye.x += 5
-    
+    left_eye.x += 5
+    right_eye.x += 5
+    left_eye.x += 5
+    right_eye.x += 5
+
+    left_eye.draw()
+    right_eye.draw()
+
     # 11. Call the .draw() method for both eye variables.
 
 
 if __name__ == '__main__':
     window = turtle.Screen()
-    
+
     # 1. Find an image of a cat with BIG eyes OR use one of the 2 images provided
     #    a. Find an image using google to search. The image must be a .gif file
     #    b. Right click on the image and select 'Save image As'
     #    c. Rename the image something short (e.g. cat.gif)
     #    d. Save the image to your computer's desktop
     #    e. Drag and drop the image into this python package
-    
+
     # 2. Call the set_background() function with your variable inside of the parenthesis
     #    for example, set_background(bg_image)
+    set_background("bigEyedCat.gif")
+    x = turtle.Turtle()
+    x.pencolor("green")
+    x.width(0)
+    x.hideturtle()
+    x.speed(0)
 
     # 3. Make a new turtle
 
@@ -77,16 +91,17 @@ if __name__ == '__main__':
     #    Variables for x and y have been created at the top of your sketch, 
     #    now you can set them equal to the values you just found. Watch for
     #    negative signs!
-    
+
     # 8. After you've found the x and y for the eyes create 2 eye variables
     #    and initialize them:
-    #    left_eye  = Eye(eye=my_turtle, x=-34, y=11, radius=30)
-    #    right_eye = Eye(eye=my_turtle, x=40, y=-5, radius=30)
+    left_eye = Eye(eye=x, x=-27, y=12, radius=30)
+    right_eye = Eye(eye=x, x=46, y=-5, radius=30)
+    left_eye.draw()
+    right_eye.draw()
 
     # 9. Call the .draw() method on BOTH eye variables
 
-
-# ===================== DO NOT EDIT THE CODE BELOW ============================
+    # ===================== DO NOT EDIT THE CODE BELOW ============================
     window.onclick(screen_clicked)
     window.onkeypress(key_pressed, 'space')
     window.listen()
